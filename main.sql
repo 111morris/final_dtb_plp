@@ -3,7 +3,7 @@
 -- This SQL file creates a relational database for managing hospital/clinic operations.
 -- Includes core tables, constraints, relationships, sample data, and example queries.
 
--- Clean setup: Drop database if exists (use with caution in production)
+-- Clean setup: Drop database if exists 
 DROP DATABASE IF EXISTS HospitalDB;
 
 -- Create the database
@@ -30,7 +30,7 @@ CREATE TABLE Departments (
     description TEXT
 );
 
--- 2. Clinics Table: Different clinic locations (optional but included)
+-- 2. Clinics Table: Different clinic locations 
 CREATE TABLE Clinics (
     clinic_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE Services (
     price DECIMAL(10, 2) NOT NULL
 );
 
--- 6. DoctorServices Junction Table: Many-to-Many relationship between Doctors and Services (advanced/optional)
+-- 6. DoctorServices Junction Table: Many-to-Many relationship between Doctors and Services
 CREATE TABLE DoctorServices (
     doctor_id INT NOT NULL,
     service_id INT NOT NULL,
@@ -106,7 +106,6 @@ CREATE TABLE Appointments (
     FOREIGN KEY (doctor_id) REFERENCES Doctors(doctor_id) ON DELETE RESTRICT,
     FOREIGN KEY (clinic_id) REFERENCES Clinics(clinic_id) ON DELETE SET NULL,
     FOREIGN KEY (room_id) REFERENCES Rooms(room_id) ON DELETE SET NULL,
-    -- Ensure no overlapping appointments for the same doctor (simplified check; full constraint may need trigger)
     UNIQUE KEY unique_appointment (doctor_id, appointment_date, appointment_time)
 );
 
@@ -122,7 +121,7 @@ CREATE TABLE Prescriptions (
     FOREIGN KEY (appointment_id) REFERENCES Appointments(appointment_id) ON DELETE CASCADE
 );
 
--- 10. MedicalRecords Table: Patient health history (many per patient, optional link to appointment)
+-- 10. MedicalRecords Table: Patient health history 
 CREATE TABLE MedicalRecords (
     record_id INT AUTO_INCREMENT PRIMARY KEY,
     patient_id INT NOT NULL,
@@ -173,7 +172,7 @@ INSERT INTO Services (name, description, price) VALUES
 
 -- Insert Patients
 INSERT INTO Patients (first_name, last_name, date_of_birth, gender, phone, email, address) VALUES
-('John', 'Doe', '1980-05-15', 'M', '123-456-7890', 'john.doe@email.com', '789 Oak Ave'),
+('John', 'Voke', '1980-05-15', 'M', '123-456-7890', 'jontefresh.voke@email.com', '789 Oak Ave'),
 ('Jane', 'Smith', '1990-08-22', 'F', '098-765-4321', 'jane.smith@email.com', '101 Pine St');
 
 -- Insert Doctors
@@ -211,9 +210,9 @@ INSERT INTO Payments (appointment_id, amount, payment_method, status) VALUES
 (1, 50.00, 'Card', 'Paid'),
 (2, 75.00, 'Cash', 'Paid');
 
--- ========================================
+-- ==================
 -- Example Queries
--- ========================================
+-- ===============================
 
 -- 1. List upcoming appointments with patient and doctor names
 SELECT 
