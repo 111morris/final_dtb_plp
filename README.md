@@ -27,7 +27,7 @@ The database consists of the following tables:
 
 1. **Create the database and tables**
 
-   Run the `clinic_booking_system.sql` file (provided) in your MySQL environment to create the database schema:
+   Run the `main.sql` file (provided) in your MySQL environment to create the database schema:
 
    ```bash
    mysql -u your_username -p < clinic_booking_system.sql
@@ -58,4 +58,4 @@ The database consists of the following tables:
 
 ## Contact
 
-For any questions or feedback, please reach out to [Morris Mulandi] at [mulandimorris1@gmail.com]
+For any questions or feedback, please reach out to me at [mulandimorris1@gmail.com]
