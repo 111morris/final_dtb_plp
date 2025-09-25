@@ -30,7 +30,7 @@ The database consists of the following tables:
    Run the `main.sql` file (provided) in your MySQL environment to create the database schema:
 
    ```bash
-   mysql -u your_username -p < clinic_booking_system.sql
+   mysql -u your_username -p < main.sql
 
 2. **Insert sample data**
 
